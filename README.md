@@ -9,6 +9,9 @@ goerrfold.nvim is a Neovim plugin to fold error handling blocks like `if err := 
 ```lua
 {
   "candy12t/goerrfold.nvim",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
   config = function()
     require("goerrfold").setup()
   end,
@@ -35,6 +38,8 @@ goerrfold.nvim provides `:GoErrFold` Command.
 - `:GoErrFold fold`: fold the following error handling blocks.
   - `if err := nil {...}`
   - `if err := doSomething(); err != nil {...}`
+  - `if errors.Is(err, target) { ... }`
+  - `if errors.As(err, &target) { ... }`
 - `:GoErrFold unfold`: unfold the folded error handling blocks.
 - `:GoErrFold toggle`: toggle between `fold` and `unfold`.
 

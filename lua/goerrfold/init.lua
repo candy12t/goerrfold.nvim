@@ -3,9 +3,11 @@ local M = {}
 local command = require("goerrfold.command")
 local config = require("goerrfold.config")
 local core = require("goerrfold.core")
+local treesitter = require("goerrfold.treesitter")
 
 function M.setup(opts)
   config.setup(opts)
+  treesitter.setup()
 
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.go",
